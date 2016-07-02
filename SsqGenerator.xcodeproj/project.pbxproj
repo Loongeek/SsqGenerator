@@ -15,7 +15,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4D1718581D1F7D3100BFDEFD /* SimpleSsqGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SimpleSsqGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4D1718581D1F7D3100BFDEFD /* SsqGenerator.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SsqGenerator.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4D17185B1D1F7D3100BFDEFD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4D17185D1D1F7D3100BFDEFD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		4D1718601D1F7D3100BFDEFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -46,7 +46,7 @@
 		4D1718591D1F7D3100BFDEFD /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4D1718581D1F7D3100BFDEFD /* SimpleSsqGenerator.app */,
+				4D1718581D1F7D3100BFDEFD /* SsqGenerator.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,22 +54,30 @@
 		4D17185A1D1F7D3100BFDEFD /* SimpleSsqGenerator */ = {
 			isa = PBXGroup;
 			children = (
-				4D17185B1D1F7D3100BFDEFD /* AppDelegate.swift */,
+				4D17186D1D1F7D3D00BFDEFD /* Supporting Files */,
 				4D17185D1D1F7D3100BFDEFD /* ViewController.swift */,
 				4D17185F1D1F7D3100BFDEFD /* Main.storyboard */,
+			);
+			path = SimpleSsqGenerator;
+			sourceTree = "<group>";
+		};
+		4D17186D1D1F7D3D00BFDEFD /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4D17185B1D1F7D3100BFDEFD /* AppDelegate.swift */,
 				4D1718621D1F7D3100BFDEFD /* Assets.xcassets */,
 				4D1718641D1F7D3100BFDEFD /* LaunchScreen.storyboard */,
 				4D1718671D1F7D3100BFDEFD /* Info.plist */,
 			);
-			path = SimpleSsqGenerator;
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		4D1718571D1F7D3100BFDEFD /* SimpleSsqGenerator */ = {
+		4D1718571D1F7D3100BFDEFD /* SsqGenerator */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 4D17186A1D1F7D3100BFDEFD /* Build configuration list for PBXNativeTarget "SimpleSsqGenerator" */;
+			buildConfigurationList = 4D17186A1D1F7D3100BFDEFD /* Build configuration list for PBXNativeTarget "SsqGenerator" */;
 			buildPhases = (
 				4D1718541D1F7D3100BFDEFD /* Sources */,
 				4D1718551D1F7D3100BFDEFD /* Frameworks */,
@@ -79,9 +87,9 @@
 			);
 			dependencies = (
 			);
-			name = SimpleSsqGenerator;
+			name = SsqGenerator;
 			productName = SimpleSsqGenerator;
-			productReference = 4D1718581D1F7D3100BFDEFD /* SimpleSsqGenerator.app */;
+			productReference = 4D1718581D1F7D3100BFDEFD /* SsqGenerator.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -100,7 +108,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 4D1718531D1F7D3100BFDEFD /* Build configuration list for PBXProject "SimpleSsqGenerator" */;
+			buildConfigurationList = 4D1718531D1F7D3100BFDEFD /* Build configuration list for PBXProject "SsqGenerator" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -113,7 +121,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				4D1718571D1F7D3100BFDEFD /* SimpleSsqGenerator */,
+				4D1718571D1F7D3100BFDEFD /* SsqGenerator */,
 			);
 		};
 /* End PBXProject section */
@@ -251,9 +259,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SimpleSsqGenerator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.loongeek.SimpleSsqGenerator;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.loongeek.SsqGenerator;
+				PRODUCT_NAME = SsqGenerator;
 			};
 			name = Debug;
 		};
@@ -262,16 +271,17 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = SimpleSsqGenerator/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.loongeek.SimpleSsqGenerator;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.loongeek.SsqGenerator;
+				PRODUCT_NAME = SsqGenerator;
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		4D1718531D1F7D3100BFDEFD /* Build configuration list for PBXProject "SimpleSsqGenerator" */ = {
+		4D1718531D1F7D3100BFDEFD /* Build configuration list for PBXProject "SsqGenerator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4D1718681D1F7D3100BFDEFD /* Debug */,
@@ -280,13 +290,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		4D17186A1D1F7D3100BFDEFD /* Build configuration list for PBXNativeTarget "SimpleSsqGenerator" */ = {
+		4D17186A1D1F7D3100BFDEFD /* Build configuration list for PBXNativeTarget "SsqGenerator" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				4D17186B1D1F7D3100BFDEFD /* Debug */,
 				4D17186C1D1F7D3100BFDEFD /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
