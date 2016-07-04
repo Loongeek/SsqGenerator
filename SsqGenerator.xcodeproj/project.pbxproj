@@ -12,6 +12,7 @@
 		4D1718611D1F7D3100BFDEFD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D17185F1D1F7D3100BFDEFD /* Main.storyboard */; };
 		4D1718631D1F7D3100BFDEFD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4D1718621D1F7D3100BFDEFD /* Assets.xcassets */; };
 		4D1718661D1F7D3100BFDEFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D1718641D1F7D3100BFDEFD /* LaunchScreen.storyboard */; };
+		4D60184F1D2A2640008A0DD0 /* BallNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D60184E1D2A2640008A0DD0 /* BallNumberGenerator.swift */; };
 		4DEDEF0E1D28F99600142FE6 /* HttpRandomGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDEF0D1D28F99600142FE6 /* HttpRandomGenerator.swift */; };
 		4DEDEF101D29196600142FE6 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DEDEF0F1D29196600142FE6 /* ExternalAccessory.framework */; };
 /* End PBXBuildFile section */
@@ -24,6 +25,7 @@
 		4D1718621D1F7D3100BFDEFD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4D1718651D1F7D3100BFDEFD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4D1718671D1F7D3100BFDEFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4D60184E1D2A2640008A0DD0 /* BallNumberGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallNumberGenerator.swift; sourceTree = "<group>"; };
 		4DEDEF0D1D28F99600142FE6 /* HttpRandomGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRandomGenerator.swift; sourceTree = "<group>"; };
 		4DEDEF0F1D29196600142FE6 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 		4DEDEF111D29196600142FE6 /* SsqGenerator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SsqGenerator.entitlements; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				4D17185D1D1F7D3100BFDEFD /* ViewController.swift */,
 				4D17185F1D1F7D3100BFDEFD /* Main.storyboard */,
 				4DEDEF0D1D28F99600142FE6 /* HttpRandomGenerator.swift */,
+				4D60184E1D2A2640008A0DD0 /* BallNumberGenerator.swift */,
 			);
 			path = SimpleSsqGenerator;
 			sourceTree = "<group>";
@@ -158,6 +161,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4D60184F1D2A2640008A0DD0 /* BallNumberGenerator.swift in Sources */,
 				4DEDEF0E1D28F99600142FE6 /* HttpRandomGenerator.swift in Sources */,
 				4D17185E1D1F7D3100BFDEFD /* ViewController.swift in Sources */,
 				4D17185C1D1F7D3100BFDEFD /* AppDelegate.swift in Sources */,

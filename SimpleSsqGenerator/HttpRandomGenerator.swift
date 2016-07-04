@@ -10,13 +10,15 @@ import Foundation
 
 typealias CompletionHandler = () -> Void
 
-class HttpRandomGenerator : NSObject{
+
+
+class HttpRandomGenerator : NSObject, BallNumberGenerator{
     private var completionHandlers: [String: CompletionHandler] = [:]
-    private static var errorOccured : NSError?
-    private static var dataString : NSString?
-    private static var isSessionFinished : Bool = false
+    private var errorOccured : NSError?
+    private var dataString : NSString?
+    private var isSessionFinished : Bool = false
     
-    class func generateNumberUsingWebAPI(min: Int,  max: Int, count: Int)->[Int]{
+    func generateNumberUsingWebAPI(min: Int,  max: Int, count: Int)->[Int]{
         let defaultConfiguration  = NSURLSessionConfiguration.defaultSessionConfiguration()
         let sessionWithoutADelegate = NSURLSession(configuration: defaultConfiguration)
         let urlString = "https://www.random.org/integers/?num=\(count)&min=\(min)&max=\(max)&col=1&base=10&format=plain&rnd=new"
@@ -24,14 +26,14 @@ class HttpRandomGenerator : NSObject{
             (sessionWithoutADelegate.dataTaskWithURL(url){ (data, response, error) in
                 if let error = error {
                     print("Error: \(error)")
-                    errorOccured = error
+                    self.errorOccured = error
                 } else if let response = response,
                     let data = data{
                     print("Response: \(response)")
                     print("DATA:\n\(String(data).utf8)\nEND DATA\n")
-                    dataString = NSString(data: data, encoding: NSUTF8StringEncoding)
+                    self.dataString = NSString(data: data, encoding: NSUTF8StringEncoding)
                 }
-                    isSessionFinished = true
+                    self.isSessionFinished = true
                 }).resume()
         }
         
@@ -42,6 +44,26 @@ class HttpRandomGenerator : NSObject{
         else{
             return [Int]()
         }
+    }
+    
+    func generate() -> [Int] {
+        var totalRedNumber = Set<Int>()
+        var totalNumber = [Int]()
+        repeat{
+            totalRedNumber.removeAll()
+            totalNumber = generateNumberUsingWebAPI(1,max: 33,count: 7)
+            if totalNumber.count != 7
+            {
+                return totalNumber
+            }
+            
+            for i in 0..<6{
+                totalRedNumber.insert(totalNumber[i])
+            }
+        }while(totalRedNumber.count<6)
+        
+        totalNumber[6] = totalNumber[6]%16+1
+        return totalNumber
     }
 }
 

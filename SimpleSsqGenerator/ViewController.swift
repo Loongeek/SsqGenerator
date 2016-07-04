@@ -14,6 +14,8 @@ class ViewController: UIViewController {
     @IBOutlet weak var ballView: UIView!
     @IBOutlet weak var generatorButton: UIButton!
     
+    private var generator:BallNumberGenerator = HttpRandomGenerator()
+    
     private var resultNumber:[Int]{
         set {
             if newValue.count == 7{
@@ -43,26 +45,9 @@ class ViewController: UIViewController {
     @IBAction func generate(sender: UIButton) {
         result.text = "生成结果..."
         generatorButton.enabled = false
-        resultNumber = generateNumber()
+        resultNumber = generator.generate()
     }
     
-    private func generateNumber()->[Int]{
-        var totalRedNumber = Set<Int>()
-        var totalNumber = [Int]()
-        repeat{
-        totalRedNumber.removeAll()
-        totalNumber = HttpRandomGenerator.generateNumberUsingWebAPI(1,max: 33,count: 7)
-        if totalNumber.count != 7
-        {
-            return totalNumber
-        }
-            for i in 0..<6{
-        totalRedNumber.insert(totalNumber[i])
-            }
-        }while(totalRedNumber.count<6)
-        totalNumber[6] = totalNumber[6]%16+1
-        return totalNumber
-    }
 
     
     override func viewDidLoad() {
