@@ -11,41 +11,27 @@ import UIKit
 class ViewController: UIViewController {
     
     @IBOutlet weak var result: UILabel!
-    @IBOutlet weak var redBall1: UILabel!
-    @IBOutlet weak var redBall2: UILabel!
-    @IBOutlet weak var redBall3: UILabel!
-    @IBOutlet weak var redBall4: UILabel!
-    @IBOutlet weak var redBall5: UILabel!
-    @IBOutlet weak var redBall6: UILabel!
-    @IBOutlet weak var blueBall: UILabel!
+    @IBOutlet weak var ballView: UIView!
     @IBOutlet weak var generatorButton: UIButton!
     
     private var resultNumber:[Int]{
         set {
             if newValue.count == 7{
-//                let numberStr = newValue.reduce("", combine: {(str, number) in
-//                    return str + String(number)+" "
-//                })
-//                let lastNumberWidth = String(newValue[6]).characters.count+1
-//                let numberColoredStr = NSMutableAttributedString(string: numberStr)
-//                numberColoredStr.setAttributes(
-//                    [NSForegroundColorAttributeName : UIColor.redColor()],
-//                    range: NSRange(location: 0, length: numberStr.characters.count))
-//                numberColoredStr.setAttributes([NSForegroundColorAttributeName : UIColor.blueColor()], range: NSRange(location: numberStr.characters.count-lastNumberWidth,length: lastNumberWidth))
-//                result.attributedText = numberColoredStr
-                result.text = "显示结果"
-                redBall1.text = String(newValue[0])
-                redBall2.text = String(newValue[1])
-                redBall3.text = String(newValue[2])
-                redBall4.text = String(newValue[3])
-                redBall5.text = String(newValue[4])
-                redBall6.text = String(newValue[5])
-                blueBall.text = String(newValue[6])
-                
+                result.text = "显示结果😁"
+                var curIndex = 0
+                for ballLabel in ballView.subviews{
+                    if let ball = ballLabel as? UILabel{
+                        if ball.tag == 0{
+                            ball.text = String(newValue[curIndex])
+                            curIndex += 1
+                        }
+                        else{
+                            ball.text = String(newValue[6])
+                        }
+                    }                }
             }
             else{
-//                result.attributedText = NSAttributedString(string: "个数错误")
-                result.text = "个数错误"
+                result.text = "对不起，生成出错😭"
             }
             generatorButton.enabled = true
         }
@@ -55,13 +41,12 @@ class ViewController: UIViewController {
     }
     
     @IBAction func generate(sender: UIButton) {
-        //        resultNumber = generateNumber()
-        result.text = "获取结果中..."
+        result.text = "生成结果..."
         generatorButton.enabled = false
-        resultNumber = generateNumberUsingWebAPI()
+        resultNumber = generateNumber()
     }
     
-    private func generateNumberUsingWebAPI()->[Int]{
+    private func generateNumber()->[Int]{
         var totalRedNumber = Set<Int>()
         var totalNumber = [Int]()
         repeat{
@@ -78,32 +63,21 @@ class ViewController: UIViewController {
         totalNumber[6] = totalNumber[6]%16+1
         return totalNumber
     }
-    
-//    
-//    private func generateNumber()->[Int]{
-//        var redNumber = Set<Int>()
-//        while redNumber.count<6{
-//            redNumber.insert(Int(random()%33+1))
-//        }
-//        let blueNumber = Int(random()%16+1)
-//        var result = [Int]()
-//        for number in redNumber{
-//            result.append(number)
-//        }
-//        result.append(blueNumber)
-//        return result
-//    }
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-        redBall1.backgroundColor = UIColor(patternImage: UIImage(named: "RedBall")!)
-        redBall2.backgroundColor = UIColor(patternImage: UIImage(named: "RedBall")!)
-        redBall3.backgroundColor = UIColor(patternImage: UIImage(named: "RedBall")!)
-        redBall4.backgroundColor = UIColor(patternImage: UIImage(named: "RedBall")!)
-        redBall5.backgroundColor = UIColor(patternImage: UIImage(named: "RedBall")!)
-        redBall6.backgroundColor = UIColor(patternImage: UIImage(named: "RedBall")!)
-        blueBall.backgroundColor = UIColor(patternImage: UIImage(named: "BlueBall")!)
+        // Do any additional setup after loading the view, typically from a nib.       
+        for ballLabel in ballView.subviews {
+            if let ball = ballLabel as? UILabel{
+                if ball.tag == 0{
+                    ball.backgroundColor = UIColor(patternImage: UIImage(named: "RedBall")!)
+                }
+                else{
+                    ball.backgroundColor = UIColor(patternImage: UIImage(named: "BlueBall")!)
+                }
+            }
+        }
     }
     
     override func didReceiveMemoryWarning() {
