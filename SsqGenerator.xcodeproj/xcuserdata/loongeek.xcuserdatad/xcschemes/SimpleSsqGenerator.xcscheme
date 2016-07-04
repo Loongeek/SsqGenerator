@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4D1718571D1F7D3100BFDEFD"
-            BuildableName = "SimpleSsqGenerator.app"
-            BlueprintName = "SimpleSsqGenerator"
-            ReferencedContainer = "container:SimpleSsqGenerator.xcodeproj">
+            BuildableName = "SsqGenerator.app"
+            BlueprintName = "SsqGenerator"
+            ReferencedContainer = "container:SsqGenerator.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -49,6 +49,7 @@
       useCustomWorkingDirectory = "NO"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
+      enableAddressSanitizer = "YES"
       debugServiceExtension = "internal"
       allowLocationSimulation = "YES">
       <BuildableProductRunnable
@@ -56,9 +57,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4D1718571D1F7D3100BFDEFD"
-            BuildableName = "SimpleSsqGenerator.app"
-            BlueprintName = "SimpleSsqGenerator"
-            ReferencedContainer = "container:SimpleSsqGenerator.xcodeproj">
+            BuildableName = "SsqGenerator.app"
+            BlueprintName = "SsqGenerator"
+            ReferencedContainer = "container:SsqGenerator.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
