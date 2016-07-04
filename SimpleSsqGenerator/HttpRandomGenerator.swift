@@ -10,15 +10,34 @@ import Foundation
 
 typealias CompletionHandler = () -> Void
 
-
-
 class HttpRandomGenerator : NSObject, BallNumberGenerator{
     private var completionHandlers: [String: CompletionHandler] = [:]
+    
     private var errorOccured : NSError?
     private var dataString : NSString?
     private var isSessionFinished : Bool = false
     
-    func generateNumberUsingWebAPI(min: Int,  max: Int, count: Int)->[Int]{
+    func generate() -> [Int] {
+        var totalRedNumber = Set<Int>()
+        var totalNumber = [Int]()
+        repeat{
+            totalRedNumber.removeAll()
+            totalNumber = generateNumberUsingWebAPI(1,max: 33,count: 7)
+            if totalNumber.count != 7
+            {
+                return totalNumber
+            }
+            
+            for i in 0..<6{
+                totalRedNumber.insert(totalNumber[i])
+            }
+        }while(totalRedNumber.count<6)
+        
+        totalNumber[6] = totalNumber[6]%16+1
+        return totalNumber
+    }
+    
+    private func generateNumberUsingWebAPI(min: Int,  max: Int, count: Int)->[Int]{
         let defaultConfiguration  = NSURLSessionConfiguration.defaultSessionConfiguration()
         let sessionWithoutADelegate = NSURLSession(configuration: defaultConfiguration)
         let urlString = "https://www.random.org/integers/?num=\(count)&min=\(min)&max=\(max)&col=1&base=10&format=plain&rnd=new"
@@ -46,34 +65,16 @@ class HttpRandomGenerator : NSObject, BallNumberGenerator{
         }
     }
     
-    func generate() -> [Int] {
-        var totalRedNumber = Set<Int>()
-        var totalNumber = [Int]()
-        repeat{
-            totalRedNumber.removeAll()
-            totalNumber = generateNumberUsingWebAPI(1,max: 33,count: 7)
-            if totalNumber.count != 7
-            {
-                return totalNumber
+    private func parseDataString(string:String)->[Int]{
+        var resultArray = [Int]()
+        let numberArray = string.componentsSeparatedByString("\n")
+        for numberStr in numberArray{
+            if numberStr != "" {
+                resultArray.append(Int(numberStr)!)
             }
-            
-            for i in 0..<6{
-                totalRedNumber.insert(totalNumber[i])
-            }
-        }while(totalRedNumber.count<6)
-        
-        totalNumber[6] = totalNumber[6]%16+1
-        return totalNumber
+        }
+        return resultArray
     }
+
 }
 
-private func parseDataString(string:String)->[Int]{
-    var resultArray = [Int]()
-    let numberArray = string.componentsSeparatedByString("\n")
-    for numberStr in numberArray{
-        if numberStr != "" {
-            resultArray.append(Int(numberStr)!)
-        }
-    }
-    return resultArray
-}

@@ -9,5 +9,6 @@
 import Foundation
 
 protocol BallNumberGenerator{
+    //return an array of 7 numbers, first 6 are redball numbers, last one is blueball numbers
     func generate()->[Int]
 }
