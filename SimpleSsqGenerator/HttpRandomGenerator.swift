@@ -33,7 +33,7 @@ class HttpRandomGenerator : NSObject, BallNumberGenerator{
             for member in tempRedBalls!{
                 redBalls.insert(member)
             }
-        }while(redBalls.count < 6 || retryCount < 10)
+        }while(redBalls.count < 6 && retryCount < 10)
         return [Int](redBalls)
     }
     
@@ -51,10 +51,10 @@ class HttpRandomGenerator : NSObject, BallNumberGenerator{
         session.dataTaskWithURL(NSURL(string: urlString)!){ [unowned self] (data, response, error) in
             condition.lock()
             if let errors = error {
-//                    print("Error: \(error)")
+                    print("Error: \(error)")
                     self.errorOccured = errors
                 } else if let data = data{
-//                    print("DATA:\n\(String(data).utf8)\nEND DATA\n")
+                    print("DATA:\n\(String(data).utf8)\nEND DATA\n")
                     self.dataString = NSString(data: data, encoding: NSUTF8StringEncoding)
                 }
             condition.signal()
