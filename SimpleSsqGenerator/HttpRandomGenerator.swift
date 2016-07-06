@@ -25,15 +25,15 @@ class HttpRandomGenerator : NSObject, BallNumberGenerator{
     private func generateRedBall()->[Int]{
         var redBalls = Set<Int>()
         var tempRedBalls:[Int]?
-//        var reEntryCount = 0
+        var retryCount = 0
         repeat{
-//            reEntryCount = reEntryCount + 1
-//            print("reEntrying: \(count)")
+            retryCount = retryCount + 1
+            print("reEntrying: \(retryCount)")
             tempRedBalls = generateNumberUsingWebAPI(1,max:33, count:6-redBalls.count)
             for member in tempRedBalls!{
                 redBalls.insert(member)
             }
-        }while(redBalls.count < 6)
+        }while(redBalls.count < 6 || retryCount < 10)
         return [Int](redBalls)
     }
     
@@ -44,6 +44,7 @@ class HttpRandomGenerator : NSObject, BallNumberGenerator{
     
     private func generateNumberUsingWebAPI(min: Int,  max: Int, count: Int)->[Int]{
         let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
+        session
         let urlString = "https://www.random.org/integers/?num=\(count)&min=\(min)&max=\(max)&col=1&base=10&format=plain&rnd=new"
         
         let condition = NSCondition()
@@ -61,7 +62,7 @@ class HttpRandomGenerator : NSObject, BallNumberGenerator{
         }.resume()
         
         condition.lock()
-        condition.wait()
+        condition.waitUntilDate(NSDate(timeIntervalSinceNow: 30))
         session.finishTasksAndInvalidate()
         condition.unlock()
 

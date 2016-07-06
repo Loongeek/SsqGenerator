@@ -49,12 +49,13 @@ class ViewController: UIViewController {
 //        generatorButton.enabled = false
         resultNumber = generator.generate()
     }
-    
+
 
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.       
+        // Do any additional setup after loading the view, typically from a nib.  
+        view.backgroundColor = UIColor(patternImage: UIImage(named: "background")!)
         for ballLabel in ballView.subviews {
             if let ball = ballLabel as? UILabel{
                 if ball.tag == 0{
