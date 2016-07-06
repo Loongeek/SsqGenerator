@@ -19,16 +19,16 @@ class HttpRandomGenerator : NSObject, BallNumberGenerator{
     private var isSessionFinished : Bool = false
     
     func generate() -> [Int] {
-        return generateRedBall().sort()+generateBlueBall()
+        return generateRedBall().sort() + generateBlueBall()
     }
     
     private func generateRedBall()->[Int]{
         var redBalls = Set<Int>()
         var tempRedBalls:[Int]?
-        var count = 0
+//        var reEntryCount = 0
         repeat{
-            count = count + 1
-            print("reEntrying: \(count)")
+//            reEntryCount = reEntryCount + 1
+//            print("reEntrying: \(count)")
             tempRedBalls = generateNumberUsingWebAPI(1,max:33, count:6-redBalls.count)
             for member in tempRedBalls!{
                 redBalls.insert(member)
@@ -46,21 +46,25 @@ class HttpRandomGenerator : NSObject, BallNumberGenerator{
         let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
         let urlString = "https://www.random.org/integers/?num=\(count)&min=\(min)&max=\(max)&col=1&base=10&format=plain&rnd=new"
         
+        let condition = NSCondition()
         session.dataTaskWithURL(NSURL(string: urlString)!){ [unowned self] (data, response, error) in
-            if let error = error {
+            condition.lock()
+            if let errors = error {
 //                    print("Error: \(error)")
-                    self.errorOccured = error
+                    self.errorOccured = errors
                 } else if let data = data{
 //                    print("DATA:\n\(String(data).utf8)\nEND DATA\n")
                     self.dataString = NSString(data: data, encoding: NSUTF8StringEncoding)
                 }
-            
-                    self.isSessionFinished = true
+            condition.signal()
+            condition.unlock()
         }.resume()
         
-        while(isSessionFinished==false){}
-        isSessionFinished = false
+        condition.lock()
+        condition.wait()
         session.finishTasksAndInvalidate()
+        condition.unlock()
+
         if let string = dataString where errorOccured==nil{
                 return parseDataString(string as String)
         }
