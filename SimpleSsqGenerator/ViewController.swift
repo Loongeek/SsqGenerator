@@ -19,7 +19,6 @@ class ViewController: UIViewController {
     private var resultNumber:[Int]{
         set {
             if newValue.count == 7{
-                result.text = "显示结果😁"
                 var curIndex = 0
                 for ballLabel in ballView.subviews{
                     if let ball = ballLabel as? UILabel{
@@ -30,21 +29,24 @@ class ViewController: UIViewController {
                         else{
                             ball.text = String(newValue[6])
                         }
-                    }                }
+                    }
+                }
+                result.text = "显示结果😁"
             }
             else{
                 result.text = "对不起，生成出错😭"
             }
             generatorButton.enabled = true
         }
+        
         get{
             return self.resultNumber
         }
     }
     
     @IBAction func generate(sender: UIButton) {
-        result.text = "生成结果..."
-        generatorButton.enabled = false
+//        result.text = "生成结果..."
+//        generatorButton.enabled = false
         resultNumber = generator.generate()
     }
     

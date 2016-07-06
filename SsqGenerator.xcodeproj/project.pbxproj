@@ -14,7 +14,6 @@
 		4D1718661D1F7D3100BFDEFD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4D1718641D1F7D3100BFDEFD /* LaunchScreen.storyboard */; };
 		4D60184F1D2A2640008A0DD0 /* BallNumberGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D60184E1D2A2640008A0DD0 /* BallNumberGenerator.swift */; };
 		4DEDEF0E1D28F99600142FE6 /* HttpRandomGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4DEDEF0D1D28F99600142FE6 /* HttpRandomGenerator.swift */; };
-		4DEDEF101D29196600142FE6 /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4DEDEF0F1D29196600142FE6 /* ExternalAccessory.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,8 +26,6 @@
 		4D1718671D1F7D3100BFDEFD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4D60184E1D2A2640008A0DD0 /* BallNumberGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BallNumberGenerator.swift; sourceTree = "<group>"; };
 		4DEDEF0D1D28F99600142FE6 /* HttpRandomGenerator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HttpRandomGenerator.swift; sourceTree = "<group>"; };
-		4DEDEF0F1D29196600142FE6 /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
-		4DEDEF111D29196600142FE6 /* SsqGenerator.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = SsqGenerator.entitlements; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -36,7 +33,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4DEDEF101D29196600142FE6 /* ExternalAccessory.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -46,8 +42,6 @@
 		4D17184F1D1F7D3100BFDEFD = {
 			isa = PBXGroup;
 			children = (
-				4DEDEF111D29196600142FE6 /* SsqGenerator.entitlements */,
-				4DEDEF0F1D29196600142FE6 /* ExternalAccessory.framework */,
 				4D17185A1D1F7D3100BFDEFD /* SimpleSsqGenerator */,
 				4D1718591D1F7D3100BFDEFD /* Products */,
 			);
@@ -119,7 +113,7 @@
 						DevelopmentTeam = Y52K8H9CBS;
 						SystemCapabilities = {
 							com.apple.WAC = {
-								enabled = 1;
+								enabled = 0;
 							};
 						};
 					};
@@ -277,7 +271,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SsqGenerator.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SimpleSsqGenerator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
@@ -292,7 +285,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = SsqGenerator.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = SimpleSsqGenerator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
