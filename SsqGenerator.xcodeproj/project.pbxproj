@@ -272,11 +272,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_PROFILING_CODE = YES;
 				INFOPLIST_FILE = SimpleSsqGenerator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.loongeek.SsqGenerator;
 				PRODUCT_NAME = SsqGenerator;
+				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_STYLE = all;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -286,11 +289,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				GENERATE_PROFILING_CODE = YES;
 				INFOPLIST_FILE = SimpleSsqGenerator/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.loongeek.SsqGenerator;
 				PRODUCT_NAME = SsqGenerator;
+				STRIP_INSTALLED_PRODUCT = NO;
+				STRIP_STYLE = all;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

@@ -45,8 +45,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func generate(sender: UIButton) {
-//        result.text = "生成结果..."
-//        generatorButton.enabled = false
+        result.text = "生成结果..."
+        generatorButton.enabled = false
         resultNumber = generator.generate()
     }
 

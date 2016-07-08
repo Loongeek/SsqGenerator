@@ -44,7 +44,6 @@ class HttpRandomGenerator : NSObject, BallNumberGenerator{
     
     private func generateNumberUsingWebAPI(min: Int,  max: Int, count: Int)->[Int]{
         let session = NSURLSession(configuration: NSURLSessionConfiguration.defaultSessionConfiguration())
-        session
         let urlString = "https://www.random.org/integers/?num=\(count)&min=\(min)&max=\(max)&col=1&base=10&format=plain&rnd=new"
         
         let condition = NSCondition()
