@@ -47,7 +47,9 @@ class ViewController: UIViewController {
     @IBAction func generate(sender: UIButton) {
         result.text = "生成结果..."
         generatorButton.enabled = false
-        resultNumber = generator.generate()
+        dispatch_async(dispatch_queue_create("generate", nil)){ [unowned self] in
+        self.resultNumber = self.generator.generate()
+        }
     }
 
 
