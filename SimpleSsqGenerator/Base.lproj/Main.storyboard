@@ -140,14 +140,24 @@
                                     <action selector="generate:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ncd-cV-QvS"/>
                                 </connections>
                             </button>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="Ml5-Qa-3d3">
+                                <rect key="frame" x="268.5" y="267.5" width="64" height="64"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="64" id="82G-jt-h1T"/>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="64" id="PId-S2-ntC"/>
+                                </constraints>
+                                <color key="color" red="1" green="0.91606038810000001" blue="0.0" alpha="1" colorSpace="deviceRGB"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="igJ-Nw-ZUd" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9cw-n4-alf"/>
+                            <constraint firstItem="Ml5-Qa-3d3" firstAttribute="centerX" secondItem="Kjp-zV-nSc" secondAttribute="centerX" id="AoO-d4-4em"/>
                             <constraint firstItem="Kjp-zV-nSc" firstAttribute="top" secondItem="igJ-Nw-ZUd" secondAttribute="bottom" constant="20" id="Clk-kJ-LTw"/>
                             <constraint firstItem="igJ-Nw-ZUd" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="REH-bh-ZAx"/>
                             <constraint firstItem="igJ-Nw-ZUd" firstAttribute="centerX" secondItem="uO3-vs-NzQ" secondAttribute="centerX" id="ZIF-0I-9b1"/>
                             <constraint firstItem="Kjp-zV-nSc" firstAttribute="centerX" secondItem="uO3-vs-NzQ" secondAttribute="centerX" id="dxl-Ch-1sA"/>
+                            <constraint firstItem="Ml5-Qa-3d3" firstAttribute="centerY" secondItem="Kjp-zV-nSc" secondAttribute="centerY" id="j0R-C0-YlN"/>
                             <constraint firstItem="Kjp-zV-nSc" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="tLJ-W3-hd5"/>
                             <constraint firstItem="igJ-Nw-ZUd" firstAttribute="top" secondItem="uO3-vs-NzQ" secondAttribute="bottom" constant="20" id="tQv-pz-X3G"/>
                         </constraints>
@@ -161,6 +171,7 @@
                         <outlet property="ballView" destination="igJ-Nw-ZUd" id="0eH-9O-rHD"/>
                         <outlet property="generatorButton" destination="Kjp-zV-nSc" id="1YJ-vI-gS3"/>
                         <outlet property="result" destination="uO3-vs-NzQ" id="qbU-Y2-iam"/>
+                        <outlet property="waiting" destination="Ml5-Qa-3d3" id="FH6-6a-nMt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>

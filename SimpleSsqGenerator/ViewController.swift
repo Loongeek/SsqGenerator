@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var result: UILabel!
     @IBOutlet weak var ballView: UIView!
     @IBOutlet weak var generatorButton: UIButton!
+    @IBOutlet weak var waiting: UIActivityIndicatorView!
     
     private var generator:BallNumberGenerator = HttpRandomGenerator()
     
@@ -36,6 +37,7 @@ class ViewController: UIViewController {
             else{
                 result.text = "对不起，生成出错😭"
             }
+            waiting.stopAnimating()
             generatorButton.enabled = true
         }
         
@@ -47,6 +49,7 @@ class ViewController: UIViewController {
     @IBAction func generate(sender: UIButton) {
         result.text = "生成结果..."
         generatorButton.enabled = false
+        waiting.startAnimating()
         dispatch_async(dispatch_queue_create("generate", nil)){ [unowned self] in
         self.resultNumber = self.generator.generate()
         }
